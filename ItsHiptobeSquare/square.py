@@ -57,6 +57,24 @@ class TerminalScribe:
         pos = [self.pos[0]-1, self.pos[1]]
         if not self.canvas.hitsWall(pos):
             self.draw(pos)
+            
+    def drawSquare(self, size):
+        i = 0
+        while i < size:
+            self.right()
+            i = i + 1
+        i = 0
+        while i < size:
+            self.down()
+            i = i + 1
+        i = 0
+        while i < size:
+            self.left()
+            i = i + 1
+        i = 0
+        while i < size:
+            self.up()
+            i = i + 1
 
     def draw(self, pos):
         # Set the old position to the "trail" symbol
@@ -75,6 +93,8 @@ canvas = Canvas(30, 30)
 
 # Create a new scribe and give it the Canvas object
 scribe = TerminalScribe(canvas)
+
+scribe.drawSquare(20)
 
 # Draw a small square
 scribe.right()
